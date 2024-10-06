@@ -1,5 +1,29 @@
 const db = require('../config/db');
 
+exports.getColumnNames = (tableName) => (req, res) => {
+  const query = `SHOW COLUMNS FROM ${tableName}`;
+
+  db.query(query, (err, results) => {
+    if (err) {
+      return res.status(500).json({
+        status: 'error',
+        message: `Error fetching column names from ${tableName.toLowerCase()}`,
+        error: err
+      });
+    }
+
+    // Extract column names
+    const columnNames = results.map(column => column.Field);
+
+    res.status(200).json({
+      status: 'success',
+      message: `Fetched column names from ${tableName} successfully`,
+      data: columnNames
+    });
+  });
+};
+
+
 // Reusable CRUD operations
 exports.createRecord = (tableName) => (req, res) => {
   const record = req.body;

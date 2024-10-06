@@ -24,11 +24,8 @@ const issueFaceRoutes = require('./routes/issueFaceRoutes');
 const complaintRoutes = require('./routes/complaintRoutes'); 
 
 
-
-
-
 const app = express();
-// const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
@@ -57,12 +54,10 @@ app.use(complaintRoutes);
 
 
 
-
-
 // Start the server
-// app.listen(PORT, () => {
-//   console.log(`Server is running on http://localhost:${PORT}`);
-// });
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
 
-app.listen();
+// app.listen();
 
