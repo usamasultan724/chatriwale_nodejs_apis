@@ -10,7 +10,7 @@ const engineerRoutes = require('./routes/engineerRoutes');
 const complaintMasterRoutes = require('./routes/complaintMasterRoutes'); 
 const workingSourceRoutes = require('./routes/workingSourceRoutes');
 const companyNamePlanLinkRoutes = require('./routes/companyNamePlanLinkRoutes'); 
-const  companyPriceSetupRoutes = require('./routes/companyPriceSetupRoutes'); 
+const companyPriceSetupRoutes = require('./routes/companyPriceSetupRoutes'); 
 const statusForLeadRoutes = require('./routes/statusForLeadRoutes'); 
 const statusForComplaintRoutes = require('./routes/statusForComplaintRoutes'); 
 const partPriceRoutes = require('./routes/partPriceRoutes'); 
@@ -22,6 +22,8 @@ const leadPriceSetupRoutes = require('./routes/leadPriceSetupRoutes');
 const cityStateRoutes = require('./routes/cityStateRoutes'); 
 const issueFaceRoutes = require('./routes/issueFaceRoutes'); 
 const complaintRoutes = require('./routes/complaintRoutes'); 
+const globalRoutes = require('./routes/globalRoutes'); 
+
 
 
 const app = express();
@@ -51,6 +53,8 @@ app.use(leadPriceSetupRoutes);
 app.use(cityStateRoutes); 
 app.use(issueFaceRoutes); 
 app.use(complaintRoutes); 
+app.use(globalRoutes); 
+
 
 
 

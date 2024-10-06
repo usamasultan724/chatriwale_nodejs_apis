@@ -13,4 +13,5 @@ router.delete(`/${endPoint}/:id`, crudController.deleteRecord(tableName));
 // Fetch column names
 router.get(`/${endPoint}/columns`, crudController.getColumnNames(tableName));
 
+
 module.exports = router;

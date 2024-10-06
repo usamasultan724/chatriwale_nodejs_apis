@@ -1,5 +1,31 @@
 const db = require('../config/db');
 
+exports.getAllTableNames = () => (req, res) => {
+  // Use the dbName parameter in the query
+  const query = `SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA = 'chatriwale_db'`;
+
+  db.query(query, (err, results) => {
+    if (err) {
+      return res.status(500).json({
+        status: 'error',
+        message: 'Error fetching table names',
+        error: err
+      });
+    }
+
+    // Extract table names
+    const tableNames = results.map(table => table.TABLE_NAME);
+
+    res.status(200).json({
+      status: 'success',
+      message: 'Fetched table names successfully',
+      data: tableNames
+    });
+  });
+};
+
+
+
 exports.getColumnNames = (tableName) => (req, res) => {
   const query = `SHOW COLUMNS FROM ${tableName}`;
 
